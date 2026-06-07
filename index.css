@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-display: "Plus Jakarta Sans", "Inter", sans-serif;
+  --font-body: "Plus Jakarta Sans", "Inter", sans-serif;
+  --font-script: "Playfair Display", serif;
+
+  --color-vintage-pink-light: #F2EBE5; /* Soft modern warm sand */
+  --color-vintage-pink-bg: #FAF8F6; /* Minimalist warm linen background */
+  --color-vintage-brown: #4A5560; /* Modern scholarly slate ink */
+  --color-vintage-brown-dark: #1E252D; /* Modern charcoal/navy-slate */
+  --color-vintage-rose-dark: #A35C6D; /* Beautiful soft dusty rose */
+  --color-vintage-cream: #FFFFFF; /* High contrast clean white */
+  --color-vintage-cream-dark: #FAF5F0; /* Soft warm ivory cream background */
+  --color-vintage-gold: #C08D64; /* Sophisticated warm terracotta/bronze gold */
+  --color-vintage-gold-light: #FBF6EF; /* Soft warm peach-gold tint */
+}
+
+/* Redefined layout for clean academic canvas and generous whitespace */
+body {
+  background-color: var(--color-vintage-pink-bg);
+  color: var(--color-vintage-brown);
+  font-family: var(--font-body);
+  background-image: radial-gradient(rgba(74, 85, 96, 0.04) 1px, transparent 1px);
+  background-size: 24px 24px;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* Remove outer hard border by default if wanted, or dress it in a modern subtle frame */
+.bold-magazine-frame {
+  border: 4px solid var(--color-vintage-pink-light);
+}
+
+/* Modern and sleek scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-vintage-pink-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: #D5CED0;
+  border-radius: 99px;
+  border: 2px solid var(--color-vintage-pink-bg);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-vintage-rose-dark);
+}
+
+/* Contemporary dynamic shadows & rounded corners */
+.vintage-double-border {
+  border: 1px solid rgba(74, 85, 96, 0.1);
+}
+.vintage-double-border-rose {
+  border: 2px solid var(--color-vintage-rose-dark);
+}
+.vintage-double-border-gold {
+  border: 2px solid var(--color-vintage-gold);
+}
+
+.vintage-paper {
+  background-color: #FFFFFF;
+  border: 1px solid rgba(74, 85, 96, 0.08);
+  box-shadow: 0 10px 30px -5px rgba(30, 37, 45, 0.03), 0 1px 3px rgba(30, 37, 45, 0.01);
+}
+
+.vintage-paper-aged {
+  background-color: var(--color-vintage-cream-dark);
+  border: 1px solid rgba(74, 85, 96, 0.08);
+  box-shadow: 0 4px 20px rgba(30, 37, 45, 0.02);
+}
+
+/* Polaroid revamped as a clean, styled display card with subtle rotation & rounded elements */
+.polaroid-container {
+  background: #FFFFFF;
+  padding: 14px 14px 24px 14px;
+  box-shadow: 0 20px 40px -10px rgba(30, 37, 45, 0.08);
+  border: 1px solid rgba(74, 85, 96, 0.06);
+  border-radius: 12px;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.polaroid-container:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 30px 60px -15px rgba(30, 37, 45, 0.12);
+}
+
+/* Clean, modern dotted underline style */
+.journal-line {
+  border-bottom: 1px dashed rgba(74, 85, 96, 0.1);
+  padding-bottom: 0.75rem;
+}
+
+/* Modern clean dividers */
+.divider {
+  height: 1px;
+  background: rgba(74, 85, 96, 0.1);
+  width: 100%;
+  margin: 24px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.divider::after {
+  content: '✦';
+  background: var(--color-vintage-pink-bg);
+  padding: 0 12px;
+  font-size: 14px;
+  color: var(--color-vintage-gold);
+}
+
+.divider-cream {
+  height: 1px;
+  background: rgba(74, 85, 96, 0.1);
+  width: 100%;
+  margin: 24px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.divider-cream::after {
+  content: '✦';
+  background: #FFFFFF;
+  padding: 0 12px;
+  font-size: 14px;
+  color: var(--color-vintage-gold);
+}
+
+/* Fade in up support used in intersection observer */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Sparkling animation for starry background elements */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; transform: scale(0.9) rotate(0deg); }
+  50% { opacity: 0.8; transform: scale(1.15) rotate(90deg); }
+}
+.animate-twinkle {
+  animation: twinkle 5s infinite ease-in-out;
+}
+
+/* Smooth typing indicator */
+@keyframes blink {
+  50% { border-color: transparent }
+}
+.typewriter-cursor {
+  border-right: 2px solid var(--color-vintage-rose-dark);
+  animation: blink 0.75s step-end infinite;
+}
